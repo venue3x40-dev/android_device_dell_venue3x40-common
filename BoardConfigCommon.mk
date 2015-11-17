@@ -34,7 +34,7 @@ BOARD_KERNEL_CMDLINE := init=/init pci=noearly loglevel=0 vmalloc=256M androidbo
 BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
 BOARD_KERNEL_CMDLINE += androidboot.serialno=012345678901234567890123456789
 BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on
-BOARD_KERNEL_CMDLINE += androidboot.selinux=disabled
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Custom mkbootimg
 BOARD_CUSTOM_MKBOOTIMG := mkosimage
