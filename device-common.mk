@@ -16,6 +16,8 @@
 
 LOCAL_PATH := device/dell/venue3x40-common
 
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
 # Video
 PRODUCT_PACKAGES += \
     libdrm \
