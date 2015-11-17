@@ -22,6 +22,11 @@ on early-init
     # IMG Graphics
     symlink /dev/dri/card0 /dev/card0
 
+on init
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
+
 on fs
     mkdir /config 0775 system system
     mkdir /factory 0775 system system
