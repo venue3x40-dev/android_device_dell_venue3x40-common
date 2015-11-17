@@ -1,4 +1,3 @@
-#
 # Copyright 2014 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,22 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-
-import init.saltbay.usb.rc
-
-on early-init
-    # IMG Graphics
-    symlink /dev/dri/card0 /dev/card0
 
 on fs
-    mount_all /fstab.saltbay
-
-on post-fs-data
-    setprop vold.post_fs_data_done 1
-
-# IMG Graphics
-service pvrsrvrtl /system/bin/pvrsrvctl
-    class core
-    oneshot
-    user root
+    mkdir /dev/usb-ffs 0770 shell shell
+    mkdir /dev/usb-ffs/adb 0770 shell shell
+    mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
+    write /sys/class/android_usb/android0/f_ffs/aliases adb
