@@ -23,6 +23,9 @@ PRODUCT_PACKAGES += \
     libstlport \
     pvrsrvctl
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opengles.version=196608
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.saltbay.rc:root/init.saltbay.rc \
