@@ -29,3 +29,8 @@ lib/libwsbm.so:vendor/lib/libwsbm.so
 lib/libva.so:vendor/lib/libva.so
 lib/libva-android.so:vendor/lib/libva-android.so
 lib/libva-tpi.so:vendor/lib/libva-tpi.so
+
+###### FIRMWARES ######
+
+# Wifi
+etc/firmware/bcmdhd_aob.cal_4339_a0_level:vendor/firmware/bcmdhd_aob.cal

@@ -28,6 +28,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
+# Wifi
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
+
+include hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.saltbay.rc:root/init.saltbay.rc \
@@ -39,7 +50,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
 
 PRODUCT_CHARACTERISTICS := tablet
 

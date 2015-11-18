@@ -49,6 +49,14 @@ BOARD_CACHEIMAGE_PARTITION_SIZE    := 1610612736
 
 BOARD_FLASH_BLOCK_SIZE := 2048
 
+# Wifi
+BOARD_WLAN_DEVICE                := bcmdhd
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcm4335/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
+
 # OpenGL
 USE_OPENGL_RENDERER := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
