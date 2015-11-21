@@ -32,7 +32,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf
+    wpa_supplicant.conf \
+    hostapd
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
