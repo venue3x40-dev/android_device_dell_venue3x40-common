@@ -34,3 +34,6 @@ lib/libva-tpi.so:vendor/lib/libva-tpi.so
 
 # Wifi
 etc/firmware/bcmdhd_aob.cal_4339_a0_level:vendor/firmware/bcmdhd_aob.cal
+
+# Bluetooth
+etc/firmware/bt/BCM4335C0_003.001.009.0043.0227.hcd:vendor/firmware/BCM4335C0_003.001.009.0043.0227.hcd

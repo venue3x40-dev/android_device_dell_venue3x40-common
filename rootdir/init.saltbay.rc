@@ -35,6 +35,12 @@ on fs
     mount_all /fstab.saltbay
 
 on post-fs-data
+    # Bluetooth
+    setprop ro.bt.bdaddr_path "/config/bt/bd_addr.conf"
+    chmod 0660 /sys/class/rfkill/rfkill2/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill2/state
+    chown bluetooth net_bt_stack /sys/class/rfkill/rfkill2/type
+
     setprop vold.post_fs_data_done 1
 
 # Wifi
@@ -80,6 +86,18 @@ service dhcpcd_p2p /system/bin/dhcpcd -aABKL
 
 service iprenew_p2p /system/bin/dhcpcd -n
     class late_start
+    disabled
+    oneshot
+
+# Bluetooth
+service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
+    class main
+    group bluetooth wifi system dhcp
+    disabled
+    oneshot
+
+service iprenew_bt-pan /system/bin/dhcpcd -n
+    group bluetooth system dhcp
     disabled
     oneshot
 

@@ -60,6 +60,11 @@ WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcm4335/parameters/firmware_pat
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUEDROID_VENDOR_CONF := device/dell/venue3x40-common/bluetooth/vnd_venue3x40.txt
+
 # OpenGL
 USE_OPENGL_RENDERER := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
