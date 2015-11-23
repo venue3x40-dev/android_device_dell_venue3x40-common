@@ -44,6 +44,10 @@ include hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk
 PRODUCT_PACKAGES += \
     sensors.saltbay
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.saltbay
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.saltbay.rc:root/init.saltbay.rc \

@@ -35,6 +35,9 @@ on fs
     mount_all /fstab.saltbay
 
 on post-fs
+    # screen backlight
+    chown system system /sys/class/backlight/psb-bl/brightness
+
     # accelerometer
     chown root input /sys/bus/i2c/devices/6-0018/enable_device
     chown root input /sys/bus/i2c/devices/6-0018/pollrate_ms
