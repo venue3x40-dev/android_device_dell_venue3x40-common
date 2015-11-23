@@ -34,6 +34,14 @@ on fs
 
     mount_all /fstab.saltbay
 
+on post-fs
+    # accelerometer
+    chown root input /sys/bus/i2c/devices/6-0018/enable_device
+    chown root input /sys/bus/i2c/devices/6-0018/pollrate_ms
+
+    # light sensor
+    chown root input /sys/bus/i2c/devices/6-0023/enable_als
+
 on post-fs-data
     # Bluetooth
     setprop ro.bt.bdaddr_path "/config/bt/bd_addr.conf"
