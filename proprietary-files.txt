@@ -23,9 +23,6 @@ lib/libhwcwidi.so:vendor/lib/libhwcwidi.so
 lib/libmultidisplay.so:vendor/lib/libmultidisplay.so
 lib/libvpp_setting.so:vendor/lib/libvpp_setting.so
 
-# Video dependencies
-lib/libcorkscrew.so:vendor/lib/libcorkscrew.so
-
 # Audio
 lib/hw/audio.primary.saltbay.so:vendor/lib/hw/audio.primary.saltbay.so
 lib/libauddriver.so:vendor/lib/libauddriver.so
