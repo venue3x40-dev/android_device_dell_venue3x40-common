@@ -22,6 +22,9 @@ TARGET_CPU_ABI := x86
 TARGET_BOARD_PLATFORM := merrifield
 TARGET_BOOTLOADER_BOARD_NAME := merrifield
 
+# Specific headers
+TARGET_BOARD_KERNEL_HEADERS := device/dell/venue3x40-common/kernel-headers
+
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/dell/venue3x40
 TARGET_KERNEL_CONFIG := cyanogenmod_venue3x40_defconfig
@@ -48,6 +51,9 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 11802754048
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 1610612736
 
 BOARD_FLASH_BLOCK_SIZE := 2048
+
+# Video
+ENABLE_IMG_GRAPHICS := true
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd

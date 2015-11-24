@@ -25,7 +25,6 @@ lib/libvpp_setting.so:vendor/lib/libvpp_setting.so
 
 # Video dependencies
 lib/libcorkscrew.so:vendor/lib/libcorkscrew.so
-lib/libwsbm.so:vendor/lib/libwsbm.so
 lib/libva.so:vendor/lib/libva.so
 lib/libva-android.so:vendor/lib/libva-android.so
 lib/libva-tpi.so:vendor/lib/libva-tpi.so

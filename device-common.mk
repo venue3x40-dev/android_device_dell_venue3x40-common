@@ -25,6 +25,9 @@ PRODUCT_PACKAGES += \
     libstlport \
     pvrsrvctl
 
+PRODUCT_PACKAGES += \
+    libwsbm
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
