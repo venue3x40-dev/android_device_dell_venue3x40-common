@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/SystemClass.xsd" Name="Audio">
+    <SubsystemInclude Path="WM8958Subsystem.xml"/>
+    <SubsystemInclude Path="VirtualDevicesSubsystem.xml"/>
+    <SubsystemInclude Path="UTASubsystem.xml"/>
+    <SubsystemInclude Path="ConfigurationSubsystem.xml"/>
+    <SubsystemInclude Path="IMCSubsystem.xml"/>
+    <SubsystemInclude Path="PowerSubsystem.xml"/>
+    <SubsystemInclude Path="SysfsAudioSubsystem.xml"/>
+    <SubsystemInclude Path="DSPSubsystem.xml"/>
+</SystemClass>

@@ -1,0 +1,329 @@
+<dsplibconfig>
+        <card name="wm8958audio">
+                <device name="probe" number="3" mixer_ctl="SST Pipe_id control"/>
+                <device name="powerctl" number="6" />
+        </card>
+	<recovery>
+		<sysfs-path value= "/sys/devices/pci0000:00/0000:00:0d.0/audio_recovery"/>
+	</recovery>
+	<bytectls>
+		<bytectl type="read"    ctl="SST Byte control" />
+		<bytectl type="write"   ctl="SST Byte control" />
+	</bytectls>
+	<probe>
+		<period-size value="6000" />
+		<period-count value="2" />
+		<max-probe-streams value="8" />
+	</probe>
+	<debug>
+		<mixer-write value="1" />
+		<debug-level value="0" />
+		<dump-file-path value="./libdsp_cmd.dump" />
+	</debug>
+	<commands task_id="1" task="DSP_TASK_SBA">
+		<command num="114" name="SBA_SET_SWM" >
+			<mixers id="2" name="CODEC_OUT0" mixer_switch="Mix Codec0 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Codec0 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Codec0 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Codec0 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Codec0 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Codec0 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Codec0 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Codec0 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Codec0 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Codec0 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Codec0 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Codec0 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Codec0 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Codec0 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Codec0 FM"/>
+			</mixers>
+			<mixers id="3" name="CODEC_OUT1" mixer_switch="Mix Codec1 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Codec1 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Codec1 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Codec1 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Codec1 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Codec1 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Codec1 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Codec1 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Codec1 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Codec1 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Codec1 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Codec1 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Codec1 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Codec1 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Codec1 FM"/>
+			</mixers>
+			<mixers id="0" name="MODEM_OUT" mixer_switch="Mix Modem Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Modem Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Modem Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Modem Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Modem Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Modem Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Modem Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Modem Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Modem Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Modem Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Modem Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Modem Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Modem PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Modem PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Modem FM"/>
+			</mixers>
+			<mixers id="4" name="SPROT_LOOP_OUT" mixer_switch="Mix Sprot L0 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Sprot L0 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Sprot L0 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Sprot L0 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Sprot L0 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Sprot L0 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Sprot L0 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Sprot L0 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Sprot L0 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Sprot L0 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Sprot L0 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Sprot L0 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Sprot L0 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Sprot L0 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Sprot L0 FM"/>
+			</mixers>
+			<mixers id="5" name="MEDIA_LOOP1_OUT" mixer_switch="Mix Media L1 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Media L1 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Media L1 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Media L1 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Media L1 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Media L1 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Media L1 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Media L1 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Media L1 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Media L1 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Media L1 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Media L1 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Media L1 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Media L1 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Media L1 FM"/>
+			</mixers>
+			<mixers id="6" name="MEDIA_LOOP2_OUT" mixer_switch="Mix Media L2 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Media L2 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Media L2 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Media L2 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Media L2 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Media L2 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Media L2 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Media L2 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Media L2 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Media L2 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Media L2 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Media L2 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Media L2 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Media L2 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Media L2 FM"/>
+			</mixers>
+			<mixers id="10" name="SPEECH_OUT" mixer_switch="Mix Speech Tx Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Speech Tx Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Speech Tx Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Speech Tx Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Speech Tx Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Speech Tx Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Speech Tx Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Speech Tx Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Speech Tx Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Speech Tx Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Speech Tx Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Speech Tx Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Speech Tx PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Speech Tx PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Speech Tx FM"/>
+			</mixers>
+			<mixers id="11" name="RxSPEECH_OUT" mixer_switch="Mix Speech Rx Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Speech Rx Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Speech Rx Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Speech Rx Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Speech Rx Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Speech Rx Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Speech Rx Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Speech Rx Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Speech Rx Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Speech Rx Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Speech Rx Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Speech Rx Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Speech Rx PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Speech Rx PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Speech Rx FM"/>
+			</mixers>
+			<mixers id="12" name="VOIP_OUT" mixer_switch="Mix Voip Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Voip Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Voip Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Voip Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Voip Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Voip Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Voip Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Voip Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Voip Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Voip Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Voip Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Voip Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Voip PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Voip PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Voip FM"/>
+			</mixers>
+			<mixers id="13" name="PCM0_OUT" mixer_switch="Mix PCM0 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX PCM0 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX PCM0 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX PCM0 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX PCM0 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX PCM0 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX PCM0 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX PCM0 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX PCM0 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX PCM0 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX PCM0 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX PCM0 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX PCM0 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX PCM0 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX PCM0 FM"/>
+			</mixers>
+			<mixers id="14" name="PCM1_OUT" mixer_switch="Mix PCM1 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX PCM1 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX PCM1 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX PCM1 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX PCM1 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX PCM1 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX PCM1 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX PCM1 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX PCM1 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX PCM1 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX PCM1 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX PCM1 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX PCM1 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX PCM1 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX PCM1 FM"/>
+			</mixers>
+			<mixers id="15" name="PCM2_OUT" mixer_switch="Mix PCM2 Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX PCM2 Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX PCM2 Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX PCM2 Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX PCM2 Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX PCM2 Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX PCM2 Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX PCM2 Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX PCM2 Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX PCM2 Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX PCM2 Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX PCM2 Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX PCM2 PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX PCM2 PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX PCM2 FM"/>
+			</mixers>
+			<mixers id="16" name="AWARE_OUT" mixer_switch="Mix Aware Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX Aware Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX Aware Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX Aware Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX Aware Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX Aware Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX Aware Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX Aware Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX Aware Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX Aware Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX Aware Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX Aware Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX Aware PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX Aware PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX Aware FM"/>
+			</mixers>
+			<mixers id="17" name="VAD_OUT" mixer_switch="Mix VAD Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX VAD Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX VAD Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX VAD Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX VAD Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX VAD Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX VAD Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX VAD Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX VAD Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX VAD Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX VAD Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX VAD Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX VAD PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX VAD PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX VAD FM"/>
+			</mixers>
+			<mixers id="20" name="FM_OUT" mixer_switch="Mix FM Switch Switch">
+				<mixer id="130" name="CODEC_IN0" mixer_ctl="MIX FM Codec0"/>
+				<mixer id="131" name="CODEC_IN1" mixer_ctl="MIX FM Codec1"/>
+				<mixer id="128" name="MODEM_IN" mixer_ctl="MIX FM Modem"/>
+				<mixer id="132" name="SPROT_LOOP_IN" mixer_ctl="MIX FM Sprot_L0"/>
+				<mixer id="133" name="MEDIA_LOOP1_IN" mixer_ctl="MIX FM Media_L1"/>
+				<mixer id="134" name="MEDIA_LOOP2_IN" mixer_ctl="MIX FM Media_L2"/>
+				<mixer id="136" name="SIDETONE_IN" mixer_ctl="MIX FM Sidetone"/>
+				<mixer id="137" name="TxSPEECH_IN" mixer_ctl="MIX FM Speech_Tx"/>
+				<mixer id="138" name="SPEECH_IN" mixer_ctl="MIX FM Speech_Rx"/>
+				<mixer id="139" name="TONE_IN" mixer_ctl="MIX FM Tone"/>
+				<mixer id="140" name="VOIP_IN" mixer_ctl="MIX FM Voip"/>
+				<mixer id="141" name="PCM0_IN" mixer_ctl="MIX FM PCM0"/>
+				<mixer id="142" name="PCM1_IN" mixer_ctl="MIX FM PCM1"/>
+				<mixer id="146" name="FM_IN" mixer_ctl="MIX FM FM"/>
+			</mixers>
+		</command>
+		<command num="117" name="SBA_HW_SET_SSP">
+			<mixers id="0" name="SSP_MODEM"><!-- mixer id is dummy for this command -->
+				<mixer id="0" name="Modem Input Switch" mixer_ctl="In Modem Switch Switch"/>
+				<mixer id="256" name="Modem Output Switch" mixer_ctl="Out Modem Switch Switch"/>
+			</mixers>
+			<mixers id="2" name="SSP_FM">
+				<mixer id="2" name="FM Input Switch" mixer_ctl="In FM Switch Switch"/>
+				<mixer id="258" name="FM Output Switch" mixer_ctl="Out FM Switch Switch"/>
+			</mixers>
+			<mixers id="3" name="SSP_CODEC">
+				<mixer id="3" name="Codec0 Input Switch" mixer_ctl="In Codec0 Switch Switch"/>
+				<mixer id="19" name="Codec1 Input Switch" mixer_ctl="In Codec1 Switch Switch"/>
+				<mixer id="259" name="Codec0 Output Switch" mixer_ctl="Out Codec0 Switch Switch"/>
+				<mixer id="275" name="Codec1 Output Switch" mixer_ctl="Out Codec1 Switch Switch"/>
+			</mixers>
+		</command>
+		<command num="119" name="SBA_SET_MEDIA_PATH">
+			<mixers id="141" name="PCM0_IN" mixer_switch="In PCM0 Switch Switch"/>
+			<mixers id="142" name="PCM1_IN" mixer_switch="In PCM1 Switch Switch"/>
+			<mixers id="13" name="PCM0_OUT" mixer_switch="Out PCM0 Switch Switch"/>
+			<mixers id="14" name="PCM1_OUT" mixer_switch="Out PCM1 Switch Switch"/>
+			<!--<mixers id="15" name="PCM2_OUT" mixer_switch="Out PCM2 Switch Switch"/>--><!-- Unused -->
+			<mixers id="140" name="VOIP_IN" mixer_switch="In Voip Switch Switch"/>
+			<mixers id="12" name="VOIP_OUT" mixer_switch="Out Voip Switch Switch"/>
+			<mixers id="16" name="AWARE_OUT" mixer_switch="Out Aware Switch Switch"/>
+			<mixers id="17" name="VAD_OUT" mixer_switch="Out VAD Switch Switch"/>
+		</command>
+<!-- TODO: Check correctness -->
+		<command num="26" name="SBA_VB_SET_SPEECH_PATH">
+			<mixers id="10" name="SPEECH_OUT" mixer_switch="Out Speech Tx Switch Switch"/>
+			<mixers id="11" name="RxSPEECH_OUT" mixer_switch="Out Speech Rx Switch Switch"/>
+			<mixers id="138" name="SPEECH_IN" mixer_switch="In Speech Rx Switch Switch"/>
+			<mixers id="137" name="TxSPEECH_IN" mixer_switch="In Speech Tx Switch Switch"/>
+		</command>
+		<command num="41" name="SBA_VB_START_TONE">
+			<mixers id="139" name="TONE_IN" mixer_switch="In Tone Switch Switch"/>
+		</command>
+		<command num="42" name="SBA_VB_STOP_TONE">
+			<mixers id="139" name="TONE_IN" mixer_switch="In Tone Switch Switch"/>
+		</command>
+<!-- TODO: END Check correctness -->
+	</commands>
+	<commands task_id="3" task="DSP_TASK_MMX">
+		<command num="114" name="MMX_SET_SWM">
+			<mixers id="18" name="MEDIA0_OUT" mixer_switch="Mix Media0 Switch Switch">
+				<mixer id="143" name="MEDIA0_IN" mixer_ctl="MIX Media0 Media0" />
+				<mixer id="144" name="MEDIA1_IN" mixer_ctl="MIX Media0 Media1" />
+				<mixer id="145" name="MEDIA2_IN" mixer_ctl="MIX Media0 Media2" />
+			</mixers>
+			<mixers id="19" name="MEDIA1_OUT" mixer_switch="Mix Media1 Switch Switch">
+				<mixer id="143" name="MEDIA0_IN" mixer_ctl="MIX Media1 Media0" />
+				<mixer id="144" name="MEDIA1_IN" mixer_ctl="MIX Media1 Media1" />
+				<mixer id="145" name="MEDIA2_IN" mixer_ctl="MIX Media1 Media2" />
+			</mixers>
+		</command>
+		<command num="119" name="MMX_SET_MEDIA_PATH">
+			<mixers id="143" name="MEDIA0_IN" mixer_switch="In Media0 Switch Switch"/>
+			<mixers id="144" name="MEDIA1_IN" mixer_switch="In Media1 Switch Switch"/>
+			<mixers id="145" name="MEDIA2_IN" mixer_switch="In Media2 Switch Switch"/>
+			<mixers id="18" name="MEDIA0_OUT" mixer_switch="Out Media0 Switch Switch"/>
+			<mixers id="19" name="MEDIA1_OUT" mixer_switch="Out Media1 Switch Switch"/>
+		</command>
+	</commands>
+</dsplibconfig>

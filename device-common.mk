@@ -28,6 +28,27 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
+# Audio
+PRODUCT_PACKAGES += \
+    libshim_audio \
+    \
+    audio.a2dp.default \
+    audio.r_submix.default \
+    audio.usb.default
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/configs/libdsp_config.xml:system/etc/libdsp_config.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/AudioClass.xml:system/etc/parameter-framework/Structure/Audio/AudioClass.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml:system/etc/parameter-framework/Structure/Audio/ConfigurationSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/DSPSubsystem.xml:system/etc/parameter-framework/Structure/Audio/DSPSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/IMCSubsystem.xml:system/etc/parameter-framework/Structure/Audio/IMCSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/PowerSubsystem.xml:system/etc/parameter-framework/Structure/Audio/PowerSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/SysfsAudioSubsystem.xml:system/etc/parameter-framework/Structure/Audio/SysfsAudioSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/UTASubsystem.xml:system/etc/parameter-framework/Structure/Audio/UTASubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/VirtualDevicesSubsystem.xml:system/etc/parameter-framework/Structure/Audio/VirtualDevicesSubsystem.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/WM8958Subsystem.xml:system/etc/parameter-framework/Structure/Audio/WM8958Subsystem.xml
+
 # Wifi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \

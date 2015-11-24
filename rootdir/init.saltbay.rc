@@ -23,6 +23,9 @@ on early-init
     symlink /dev/dri/card0 /dev/card0
 
 on init
+    # Shims
+    export LD_SHIM_LIBS /system/vendor/lib/libparameter.so|libshim_audio.so:/system/vendor/lib/libdsp.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so|libshim_audio.so
+
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
@@ -44,6 +47,10 @@ on post-fs
 
     # light sensor
     chown root input /sys/bus/i2c/devices/6-0023/enable_als
+
+    # audio
+    chown media media /sys/devices/pci0000:00/0000:00:0d.0/audio_recovery
+    chown media media /sys/devices/platform/sst-platform/deep_buffer_threshold
 
 on post-fs-data
     # Bluetooth

@@ -14,5 +14,12 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/dell/venue3x40-common
+
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=213
+
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/parameter-framework/ParameterFrameworkConfiguration.xml:system/etc/parameter-framework/ParameterFrameworkConfiguration.xml \
+    $(LOCAL_PATH)/configs/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml:system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml

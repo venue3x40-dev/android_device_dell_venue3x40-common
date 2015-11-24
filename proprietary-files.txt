@@ -30,7 +30,34 @@ lib/libva.so:vendor/lib/libva.so
 lib/libva-android.so:vendor/lib/libva-android.so
 lib/libva-tpi.so:vendor/lib/libva-tpi.so
 
+# Audio
+lib/hw/audio.primary.saltbay.so:vendor/lib/hw/audio.primary.saltbay.so
+lib/libauddriver.so:vendor/lib/libauddriver.so
+lib/libaudiohalutils.so:vendor/lib/libaudiohalutils.so
+lib/libaudioresample.so:vendor/lib/libaudioresample.so
+lib/libaudwrapper.so:vendor/lib/libaudwrapper.so
+lib/libdsp.so:vendor/lib/libdsp.so
+lib/libevent-listener.so:vendor/lib/libevent-listener.so
+lib/libgti.so:vendor/lib/libgti.so
+lib/libgtiproxy.so:vendor/lib/libgtiproxy.so
+lib/libgtisrv.so:vendor/lib/libgtisrv.so
+lib/libinterface-provider-lib.so:vendor/lib/libinterface-provider-lib.so
+lib/libparameter.so:vendor/lib/libparameter.so
+lib/libproperty.so:vendor/lib/libproperty.so
+lib/libtinyalsa.so:vendor/lib/libtinyalsa.so
+lib/libutaos.so:vendor/lib/libutaos.so
+lib/parameter-framework-plugins/Audio/libdsp-subsystem.so
+lib/parameter-framework-plugins/Audio/libimc-subsystem.so
+lib/parameter-framework-plugins/Audio/libpower-subsystem.so
+lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so
+lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so
+lib/parameter-framework-plugins/Audio/libuta-subsystem.so
+lib/parameter-framework-plugins/Fs/libfs-subsystem.so
+
 ###### FIRMWARES ######
+
+# Audio
+etc/firmware/fw_sst_119a.bin:vendor/firmware/fw_sst_119a.bin
 
 # Wifi
 etc/firmware/bcmdhd_aob.cal_4339_a0_level:vendor/firmware/bcmdhd_aob.cal

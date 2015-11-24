@@ -1,5 +1,4 @@
-#
-# Copyright 2013 The Android Open-Source Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,14 +11,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-LOCAL_PATH := device/dell/venue3x40-common
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=320
+LOCAL_PATH := $(call my-dir)
 
 # Audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/parameter-framework/ParameterFrameworkConfiguration_ta.xml:system/etc/parameter-framework/ParameterFrameworkConfiguration_ta.xml \
-    $(LOCAL_PATH)/configs/parameter-framework/Settings/Audio/AudioConfigurableDomains_ta.xml:system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains_ta.xml
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := icu51.c
+LOCAL_SHARED_LIBRARIES := libicuuc libicui18n libstlport
+LOCAL_MODULE := libshim_audio
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
