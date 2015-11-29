@@ -24,6 +24,7 @@ TARGET_BOOTLOADER_BOARD_NAME := merrifield
 
 # Specific headers
 TARGET_BOARD_KERNEL_HEADERS := device/dell/venue3x40-common/kernel-headers
+TARGET_SPECIFIC_HEADER_PATH := device/dell/venue3x40-common/include
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/dell/venue3x40
@@ -54,6 +55,18 @@ BOARD_FLASH_BLOCK_SIZE := 2048
 
 # Video
 ENABLE_IMG_GRAPHICS := true
+INTEL_HWC_MERRIFIELD := true
+
+# Multimedia
+BUILD_WITH_FULL_STAGEFRIGHT := true
+INTEL_VA := true
+ENABLE_MRFL_GRAPHICS := true
+BOARD_USES_WRS_OMXIL_CORE := true
+BOARD_USES_MRST_OMX := true
+TARGET_HAS_VPP := true
+USE_HW_VP8 := true
+
+COMMON_GLOBAL_CFLAGS += -DMIXVBP_KK_BLOBS
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd

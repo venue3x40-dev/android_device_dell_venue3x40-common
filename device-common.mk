@@ -57,11 +57,31 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/parameter-framework/Structure/Audio/WM8958Subsystem.xml:system/etc/parameter-framework/Structure/Audio/WM8958Subsystem.xml
 
 # Multimedia
+PRODUCT_PACKAGES += \
+    libstagefrighthw \
+    \
+    libisv_omx_core \
+    \
+    libwrs_omxil_common \
+    libwrs_omxil_core_pvwrapped \
+    \
+    libva_videodecoder \
+    libva_videoencoder \
+    \
+    libOMXVideoDecoderAVC \
+    libOMXVideoDecoderH263 \
+    libOMXVideoDecoderMPEG4 \
+    libOMXVideoDecoderVP8 \
+    libOMXVideoEncoderAVC \
+    \
+    pvr_drv_video
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+    $(LOCAL_PATH)/configs/wrs_omxil_components.list:system/etc/wrs_omxil_components.list
 
 # Wifi
 PRODUCT_PACKAGES += \

@@ -23,6 +23,12 @@ lib/libhwcwidi.so:vendor/lib/libhwcwidi.so
 lib/libmultidisplay.so:vendor/lib/libmultidisplay.so
 lib/libvpp_setting.so:vendor/lib/libvpp_setting.so
 
+# Multimedia
+lib/libmixvbp.so:vendor/lib/libmixvbp.so
+lib/libmixvbp_h264.so:vendor/lib/libmixvbp_h264.so
+lib/libmixvbp_mpeg4.so:vendor/lib/libmixvbp_mpeg4.so
+lib/libmixvbp_vp8.so:vendor/lib/libmixvbp_vp8.so
+
 # Audio
 lib/hw/audio.primary.saltbay.so:vendor/lib/hw/audio.primary.saltbay.so
 lib/libauddriver.so:vendor/lib/libauddriver.so
@@ -51,6 +57,10 @@ lib/parameter-framework-plugins/Fs/libfs-subsystem.so
 
 # Audio
 etc/firmware/fw_sst_119a.bin:vendor/firmware/fw_sst_119a.bin
+
+# Multimedia
+etc/firmware/signed_msvdx_fw_mrfld_b0v1.bin:vendor/firmware/signed_msvdx_fw_mrfld_b0v1.bin
+etc/firmware/topazhp_fw_b0.bin:vendor/firmware/topazhp_fw_b0.bin
 
 # Wifi
 etc/firmware/bcmdhd_aob.cal_4339_a0_level:vendor/firmware/bcmdhd_aob.cal

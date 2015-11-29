@@ -4,6 +4,7 @@ VENDOR=dell
 DEVICE=venue3x40-common
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/device-common-vendor-blobs.mk
+ANDROIDMK=../../../$OUTDIR/Android.mk
 
 (cat << EOF) > $MAKEFILE
 # Copyright (C) 2012 The CyanogenMod Project
@@ -43,3 +44,17 @@ for FILE in `egrep -v '(^#|^$)' ../$DEVICE/proprietary-files.txt`; do
     fi
     echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
 done
+
+(cat << EOF) > $ANDROIDMK
+LOCAL_PATH:= \$(call my-dir)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE := libvpp_setting
+LOCAL_MODULE_OWNER := $VENDOR
+LOCAL_SRC_FILES := proprietary/vendor/lib/libvpp_setting.so
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_MODULE_PATH := \$(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
+include \$(BUILD_PREBUILT)
+EOF
