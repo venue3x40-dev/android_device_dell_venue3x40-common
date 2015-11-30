@@ -18,6 +18,14 @@ LOCAL_PATH := device/dell/venue3x40-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# Houdini
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.dalvik.vm.native.bridge=libhoudini.so
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.dalvik.vm.isa.arm=x86 \
+    ro.enable.native.bridge.exec=1
+
 # Video
 PRODUCT_PACKAGES += \
     libdrm \

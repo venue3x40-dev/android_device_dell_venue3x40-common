@@ -22,6 +22,11 @@ TARGET_CPU_ABI := x86
 TARGET_BOARD_PLATFORM := merrifield
 TARGET_BOOTLOADER_BOARD_NAME := merrifield
 
+# Houdini
+TARGET_CPU_ABI2 := armeabi-v7a
+TARGET_CPU_ABI_LIST_32_BIT := x86,armeabi-v7a,armeabi
+BUILD_ARM_FOR_X86 := true
+
 # Specific headers
 TARGET_BOARD_KERNEL_HEADERS := device/dell/venue3x40-common/kernel-headers
 TARGET_SPECIFIC_HEADER_PATH := device/dell/venue3x40-common/include
