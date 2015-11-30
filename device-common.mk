@@ -110,6 +110,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/ueventd.saltbay.rc:root/ueventd.saltbay.rc \
     $(LOCAL_PATH)/rootdir/fstab.saltbay:root/fstab.saltbay
 
+# Charger mode
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \

@@ -61,6 +61,10 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+# Charger mode
+on charger
+    setprop sys.usb.config charging
+
 # Wifi
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
@@ -124,3 +128,9 @@ service pvrsrvrtl /system/bin/pvrsrvctl
     class core
     oneshot
     user root
+
+# Charger mode
+service charger /sbin/healthd -c
+    class charger
+    critical
+    seclabel u:r:healthd:s0

@@ -88,5 +88,8 @@ BOARD_BLUEDROID_VENDOR_CONF := device/dell/venue3x40-common/bluetooth/vnd_venue3
 USE_OPENGL_RENDERER := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
+# Charger mode
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/dell/venue3x40-common/rootdir/fstab.saltbay
