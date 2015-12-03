@@ -18,6 +18,13 @@ LOCAL_PATH := device/dell/venue3x40-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# ART optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapgrowthlimit=128m \
+    dalvik.vm.heapsize=174m \
+    dalvik.vm.heapmaxfree=8m
+
 # Houdini
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.dalvik.vm.native.bridge=libhoudini.so
