@@ -50,6 +50,8 @@ BOARD_CUSTOM_MKBOOTIMG := mkosimage
 BOARD_MKBOOTIMG_ARGS += --bootstub device/dell/venue3x40-common/bootstub
 
 # Filesystem
+TARGET_KERNEL_HAVE_EXFAT := true
+
 TARGET_USERIMAGES_USE_EXT4 := true
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1610612736
