@@ -3,3 +3,8 @@
 
 # Bluetooth
 /dev/ttyMFD0                            0660   bluetooth  net_bt_stack
+
+# Camera
+/dev/video*                             0660   root       camera
+/dev/v4l-subdev*                        0660   root       camera
+/dev/media*                             0660   root       camera

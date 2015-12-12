@@ -82,6 +82,9 @@ USE_HW_VP8 := true
 
 COMMON_GLOBAL_CFLAGS += -DMIXVBP_KK_BLOBS
 
+# Camera
+INTEL_VIDEO_XPROC_SHARING := true
+
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
 WPA_SUPPLICANT_VERSION           := VER_0_8_X

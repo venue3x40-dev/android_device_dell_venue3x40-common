@@ -33,7 +33,7 @@ on early-init
 
 on init
     # Shims
-    export LD_SHIM_LIBS /system/vendor/lib/libparameter.so|libshim_audio.so:/system/vendor/lib/libdsp.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so|libshim_audio.so
+    export LD_SHIM_LIBS /system/vendor/lib/libparameter.so|libshim_audio.so:/system/vendor/lib/libdsp.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so|libshim_audio.so:/system/vendor/lib/hw/camera.saltbay.so|libshim_camera.so
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -63,6 +63,13 @@ on post-fs
     chown media media /sys/devices/platform/sst-platform/deep_buffer_threshold
 
 on post-fs-data
+    # Insert V4L drivers
+    insmod /system/lib/modules/videobuf-core.ko
+    insmod /system/lib/modules/videobuf-vmalloc.ko
+
+    # Insert Camera driver
+    insmod /system/lib/modules/atomisp-css2400b0_v21.ko dypool_enable=y repool_pgnr=12288 dypool_pgnr=12288
+
     # Bluetooth
     setprop ro.bt.bdaddr_path "/config/bt/bd_addr.conf"
     chmod 0660 /sys/class/rfkill/rfkill2/state

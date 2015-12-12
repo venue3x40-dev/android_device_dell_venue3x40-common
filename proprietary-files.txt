@@ -29,6 +29,29 @@ lib/libmixvbp_h264.so:vendor/lib/libmixvbp_h264.so
 lib/libmixvbp_mpeg4.so:vendor/lib/libmixvbp_mpeg4.so
 lib/libmixvbp_vp8.so:vendor/lib/libmixvbp_vp8.so
 
+# Camera
+lib/hw/camera.saltbay.so:vendor/lib/hw/camera.saltbay.so
+lib/libcilkrts.so:vendor/lib/libcilkrts.so
+lib/libgnustl_shared.so:vendor/lib/libgnustl_shared.so
+lib/libia_aiq_cp.so:vendor/lib/libia_aiq_cp.so
+lib/libia_aiq.so:vendor/lib/libia_aiq.so
+lib/libia_cmc_parser.so:vendor/lib/libia_cmc_parser.so
+lib/libia_dvs_2.so:vendor/lib/libia_dvs_2.so
+lib/libia_face.so:vendor/lib/libia_face.so
+lib/libia_isp_1_5.so:vendor/lib/libia_isp_1_5.so
+lib/libia_isp_2_2.so:vendor/lib/libia_isp_2_2.so
+lib/libia_log.so:vendor/lib/libia_log.so
+lib/libia_mkn.so:vendor/lib/libia_mkn.so
+lib/libia_nvm.so:vendor/lib/libia_nvm.so
+lib/libia_panorama.so:vendor/lib/libia_panorama.so
+lib/libimf.so:vendor/lib/libimf.so
+lib/libintlc.so:vendor/lib/libintlc.so
+lib/libirng.so:vendor/lib/libirng.so
+lib/libmfldadvci.so:vendor/lib/libmfldadvci.so
+lib/libmix_imageencoder.so:vendor/lib/libmix_imageencoder.so
+lib/libsvml.so:vendor/lib/libsvml.so
+lib/libtbd.so:vendor/lib/libtbd.so
+
 # Audio
 lib/hw/audio.primary.saltbay.so:vendor/lib/hw/audio.primary.saltbay.so
 lib/libauddriver.so:vendor/lib/libauddriver.so
@@ -61,6 +84,11 @@ etc/firmware/fw_sst_119a.bin:vendor/firmware/fw_sst_119a.bin
 # Multimedia
 etc/firmware/signed_msvdx_fw_mrfld_b0v1.bin:vendor/firmware/signed_msvdx_fw_mrfld_b0v1.bin
 etc/firmware/topazhp_fw_b0.bin:vendor/firmware/topazhp_fw_b0.bin
+
+# Camera
+etc/firmware/shisp_2400b0_v21.bin:vendor/firmware/shisp_2400b0_v21.bin
+etc/atomisp/00ov5693.cpf
+etc/atomisp/01ov9724.cpf
 
 # Wifi
 etc/firmware/bcmdhd_aob.cal_4339_a0_level:vendor/firmware/bcmdhd_aob.cal

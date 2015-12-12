@@ -23,3 +23,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/parameter-framework/ParameterFrameworkConfiguration.xml:system/etc/parameter-framework/ParameterFrameworkConfiguration.xml \
     $(LOCAL_PATH)/configs/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml:system/etc/parameter-framework/Settings/Audio/AudioConfigurableDomains.xml
+
+# Camera
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/camera_profiles_708.xml:system/etc/camera_profiles_708.xml \
+    $(LOCAL_PATH)/configs/media_profiles_708.xml:system/etc/media_profiles.xml
