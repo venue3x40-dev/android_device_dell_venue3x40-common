@@ -17,3 +17,21 @@
 LOCAL_PATH := device/dell/venue3x40-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lte
+
+# GPS
+PRODUCT_PACKAGES += \
+    libshim_gps
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
+
+# Init files
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init.lte.rc:root/init.lte.rc
+
+# These are the hardware-specific features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
+
+$(call inherit-product, vendor/dell/venue3x40-common/device-common-vendor-blobs-lte.mk)

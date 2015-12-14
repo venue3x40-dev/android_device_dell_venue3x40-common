@@ -1,0 +1,17 @@
+on post-fs-data
+    # GPS
+    chmod 0664 /sys/devices/pci0000:00/0000:00:04.2/power/control
+    chown system system /sys/devices/pci0000:00/0000:00:04.2/power/control
+    chmod 0664 /sys/devices/platform/intel_mid_gps/intel_mid_gps/enable
+    chown system system /sys/devices/platform/intel_mid_gps/intel_mid_gps/enable
+    mkdir /dev/gps 0770 system system
+    symlink /dev/ttyMFD1 /dev/gps/ttyGPS
+    symlink /sys/devices/pci0000:00/0000:00:04.2/power/control /dev/gps/ttyGPSPowerControl
+    mkdir /data/gps 0771 system system
+
+# GPS
+service gpsd /system/vendor/bin/gpsd -c /system/etc/gps.xml
+    class main
+    user gps
+    group system inet net_raw
+    ioprio be 0

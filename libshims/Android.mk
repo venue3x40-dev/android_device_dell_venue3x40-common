@@ -41,3 +41,18 @@ LOCAL_MODULE := libshim_camera
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
 include $(BUILD_SHARED_LIBRARY)
+
+# GPS
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+    gui/SensorManager.cpp \
+    crypto_malloc.c \
+    icu51.c
+
+LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils libicuuc libicui18n
+LOCAL_MODULE := libshim_gps
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)

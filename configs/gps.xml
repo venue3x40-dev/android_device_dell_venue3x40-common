@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<glgps xmlns="http://www.glpals.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.glpals.com/ glconfig.xsd" >
+  <!--HAL Configuration-->
+  <hal
+       PortName="/dev/gps/ttyGPS"
+       BaudRate="921600"
+       LogEnabled="false"
+       LogDirectory="/data/gpslog"
+       CtrlPipe="/data/gps/glgpsctrl"
+       GpioNStdbyPath="/sys/devices/platform/intel_mid_gps/intel_mid_gps/enable"
+       GpioDelayMs="130"
+       NvStorageDir="/data/gps/"
+       NmeaOutName="/data/gps/nmeapipe"
+       SuplEnable="true"
+       SuplMsbCapable="true"
+       SuplMsaCapable="true"
+       SuplEcidCapable="false"
+       SuplUseApn="true"
+       SuplVersion="1"
+       SuplMinorVersion="0"
+       SuplTlsEnable="true"
+       SuplTlsCertPath="/data/gps/gps.cer"
+       SuplTlsStopForInvPath="true"
+       SuplSslMethod="TLSv1_1"
+       SuplSslVerify="peer"
+       SuplLogEnable="false"
+       SuplLogFullName="/data/gpslog/supllog.txt"
+       SuplServer="supl.google.com"
+       SuplPort="7275"
+       HttpSyncLto="false"
+       LtoSyncThresholdDays="1"
+       LtoFileName="lto2.dat"
+       LtoDir="/data/gps/"
+       HulaEnable="false"
+       HulaSensorMask="0"
+       GpsPowerControlEnable="true"
+       GpsPowerControlSysPath="/dev/gps/ttyGPSPowerControl"
+       GpsPowerControlEnableArg="auto"
+       GpsPowerControlDisableArg="on"
+       ReAidingOnHotStart="false"
+       AssertEnabled="false"
+       ReAidingRetryCount="20"
+       ReAidingRetryIntervalSec="3"
+       AutoSUPLVersionForNI="false"
+       Log="FILE"
+  />
+
+  <gll
+       LogPriMask="LOG_INFO"
+       LogFacMask="LOG_GLLAPI | LOG_NMEA | LOG_RAWDATA | LOG_GLLIO"
+       FrqPlan="FRQ_PLAN_26MHZ_2PPM"
+       RfType="GL_RF_4752_BRCM_EXT_LNA"
+       BurstMode="true,10,15,0"
+       PsfEnablePedVdr="true"
+       PmmPercent="50"
+  />
+
+  <gll_features
+       EnableLowPowerPmm="true"
+       EnableLowPowerPedestrian="true"
+       EnableLowPowerDriving="true"
+  />
+
+<!----------------------------------------------------------------------------->
+<!-- List of jobs can be performed by the GPS controller    -->
+
+<!-- Periodic Position Fix using default settings -->
+<job id="Periodic">
+    <task>
+        <req_pos/>
+    </task>
+</job>
+
+<!-- Systematic Test: Repetitive cold starts -->
+<job Id="Cold_Starts">
+    <task Repeat="100">
+        <startup
+            IgnoreOsc="false"
+            IgnoreRomAlm="false"
+            IgnoreRamAlm="false"
+            IgnorePosition="true"
+            IgnoreNav="true"
+            IgnoreTime="true"
+        />
+        <req_pos ValidFixes="1"/>
+    </task>
+</job>
+<!-- Systematic Test: Repetitive warm starts
+    Stored ephemeris data is discarded before the start begins
+    This simulates GPS receiver start after it was left off for more that 4 hours
+-->
+<job Id="Warm_Starts">
+    <task Repeat="100">
+        <startup IgnoreNav="true"/>
+        <req_pos ValidFixes="1"/>
+    </task>
+</job>
+
+<!-- Systematic Test: Repetitive hot starts  -->
+<job Id="Hot_Starts">
+    <task Repeat="100">
+        <req_pos ValidFixes="1"/>
+    </task>
+</job>
+
+<!-- Starts single-channel factory test mode.
+     The signal is expected to initially be in the range from -125 dBm to -142 dBm
+     with the frequency offset range from -2 ppm to 2 ppm for this mode to provide
+     reliable results.
+
+     The name Factory_High_SNR is legacy only. The recommended name is
+     Factory_Track_Test.
+-->
+<job Id="Factory_High_SNR">
+    <task Id="test" Repeat="1">
+        <startup
+            IgnoreOsc="true"
+            IgnoreRomAlm="true"
+            IgnoreRamAlm="true"
+            IgnorePosition="true"
+            IgnoreNav="true"
+            IgnoreTime="true"
+        />
+        <req_ftest
+            Prn="1"
+            FactoryTestMode="GL_FACT_TEST_CONT"
+            FactoryTestItems="GL_FACT_TEST_WER"
+            AveragingIntervalSec="10"
+            DurationSec="65"
+        />
+    </task>
+</job>
+
+
+</glgps>

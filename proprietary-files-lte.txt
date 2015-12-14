@@ -1,0 +1,8 @@
+###### BINARIES ######
+
+# GPS
+bin/gpsd:vendor/bin/gpsd
+lib/hw/gps.saltbay.so:vendor/lib/hw/gps.saltbay.so
+lib/libmmgrcli.so:vendor/lib/libmmgrcli.so
+lib/libmmgr_cnx.so:vendor/lib/libmmgr_cnx.so
+lib/libmmgr_utils.so:vendor/lib/libmmgr_utils.so
