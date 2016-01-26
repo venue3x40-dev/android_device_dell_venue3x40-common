@@ -122,6 +122,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.saltbay
 
+# Power
+PRODUCT_PACKAGES += \
+    power.saltbay
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.saltbay.rc:root/init.saltbay.rc \
