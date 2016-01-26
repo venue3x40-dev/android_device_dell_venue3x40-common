@@ -61,7 +61,6 @@
        EnableLowPowerDriving="true"
   />
 
-<!----------------------------------------------------------------------------->
 <!-- List of jobs can be performed by the GPS controller    -->
 
 <!-- Periodic Position Fix using default settings -->
