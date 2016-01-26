@@ -22,6 +22,8 @@ TARGET_CPU_ABI := x86
 TARGET_BOARD_PLATFORM := merrifield
 TARGET_BOOTLOADER_BOARD_NAME := merrifield
 
+TARGET_USES_64_BIT_BINDER := true
+
 # Houdini
 TARGET_CPU_ABI2 := armeabi-v7a
 TARGET_CPU_ABI_LIST_32_BIT := x86,armeabi-v7a,armeabi
