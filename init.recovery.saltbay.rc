@@ -1,0 +1,8 @@
+# Encryption key is stored in /factory
+# Mount it at startup
+
+on init
+    mkdir /factory
+
+on fs
+    mount ext4 /dev/block/mmcblk0p3 /factory

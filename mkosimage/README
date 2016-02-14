@@ -1,0 +1,198 @@
+MMC structure
+=============
+
+MBR
+---
+
++-----------------------+
+| Bootstrap code  | 440 | // filled with 0xff then see below
++-----------------------+
+| Boot signature  | 4   | // 0x00000000
++-----------------------+
+| Null            | 2   | // 0x0000
+------------------------+
+| Partition table | 64  |
++-----------------------+
+| MBR signature   | 2   | // 0xaa55
++-----------------------+
+
+Bootstrap code
+--------------
+
+OSIP+OSII headers + backup OSIP+OSII headers
+
++--------------------------------------+
+| osip signature          | 4          | // $OS$
++--------------------------------------+
+| intel_reserved          | 1          |
++--------------------------------------+
+| header_rev_minor        | 1          |
++--------------------------------------+
+| header_rev_major        | 1          |
++--------------------------------------+
+| header_checksum         | 1          | // xor'd bytes from 0 to header_size
++--------------------------------------+
+| num_pointers            | 1          |
++--------------------------------------+
+| num_images              | 1          |
++--------------------------------------+
+| header_size             | 2          | // osip header size (32) + num_pointers*osii header size (24)
++--------------------------------------+
+| reserved[5]             | 20 (5*4)   |
++--------------------------------------+
+| os image identifiers[8] | 192 (8*24) | // see below
++--------------------------------------+
+
+OSII
+----
+
++-------------------------------+
+| os_rev_minor        | 2       |
++-------------------------------+
+| os_rev_major        | 2       |
++-------------------------------+
+| logical_start_block | 4       | // *block_size aligned*
++-------------------------------+
+| ddr_load_address    | 4       |
++-------------------------------+
+| entry_point         | 4       |
++-------------------------------+
+| size_of_os_image    | 4       | // *page_size aligned*
++-------------------------------+
+| attribute           | 1       | // image type: 0x0 signed boot, 0x1 unsigned boot, 0xc signed recovery, 0xd unsigned recovery
++-------------------------------+
+| reserved[3]         | 3 (3*1) |
++-------------------------------+
+
+Flashable image structure
+=========================
+
+Flashable images uses a fake MBR containing image parameters.
+
++--------------------------------------------------------+
+| mbr                                         | 512      | // see below
++--------------------------------------------------------+
+| command line                                |          |
++---------------------------------------------+          |
+| xen command line (if applicable)            | 1024     | // not applicable
++---------------------------------------------+          |
+| domu command line (if applicable)           |          | // not applicable
++--------------------------------------------------------+
+| kernel size                                 | 4        | // page_size aligned
++--------------------------------------------------------+
+| ramdisk size                                | 4        | // page_size aligned
++--------------------------------------------------------+
+| console suppression                         | 4        | // 0
++--------------------------------------------------------+
+| console_dev_type                            | 4        | // 0xff
++--------------------------------------------------------+
+| reserved_flag_0                             | 4        | // 0x02BD02BD
++--------------------------------------------------------+
+| reserved_flag_1                             | 4        | // 0x12BD12BD
++--------------------------------------------------------+
+| vxe size (if applicable)                    | 4        | // not applicable
++--------------------------------------------------------+
+| sps size (if applicable)                    | 4        | // not applicable
++--------------------------------------------------------+
+| xen size (if applicable)                    | 4        | // not applicable
++--------------------------------------------------------+
+| domu size (kernel + ramdisk, if applicable) | 4        | // not applicable // page_size aligned
++--------------------------------------------------------+
+| padding                                     | 3032     | // page size = 4096
++--------------------------------------------------------+
+| bootstub                                    | 8192     |
++--------------------------------------------------------+
+| kernel                                      | n        | // page_size aligned
++--------------------------------------------------------+
+| ramdisk                                     | n        | // page_size aligned
++--------------------------------------------------------+
+| vxe image (if applicable)                   | n        | // not applicable // page_size aligned
++--------------------------------------------------------+
+| sps image (if applicable)                   | n        | // not applicable // page_size aligned
++--------------------------------------------------------+
+| xen image (if applicable)                   | n        | // not applicable // page_size aligned
++--------------------------------------------------------+
+| domu kernel (if applicable)                 | n        | // not applicable // page_size aligned
++--------------------------------------------------------+
+| domu ramdisk (if applicable)                | n        | // not applicable // page_size aligned
++--------------------------------------------------------+
+
+MBR
+---
+
++-----------------------+
+| Bootstrap code  | 440 | // filled with 0xff then see below
++-----------------------+
+| Boot signature  | 4   | // 0x00000000
++-----------------------+
+| Null            | 2   | // 0x0000
+------------------------+
+| Partition table | 64  | // 0 (no partition table)
++-----------------------+
+| MBR signature   | 2   | // 0xaa55
++-----------------------+
+
+Bootstrap code
+--------------
+
+OSIP+OSII headers
+
++--------------------------------------+
+| osip signature          | 4          | // $OS$
++--------------------------------------+
+| intel_reserved          | 1          | // 0
++--------------------------------------+
+| header_rev_minor        | 1          | // 0
++--------------------------------------+
+| header_rev_major        | 1          | // 1
++--------------------------------------+
+| header_checksum         | 1          | // xor'd bytes from 0 to header_size
++--------------------------------------+
+| num_pointers            | 1          | // 1
++--------------------------------------+
+| num_images              | 1          | // 1
++--------------------------------------+
+| header_size             | 2          | // 56 (32 + 24: only one pointer)
++--------------------------------------+
+| reserved[5]             | 20 (5*4)   | // 0
++--------------------------------------+
+| os image identifiers[8] | 192 (8*24) | // see below
++--------------------------------------+
+
+OSII
+----
+
++-------------------------------+
+| os_rev_minor        | 2       | // 0
++-------------------------------+
+| os_rev_major        | 2       | // 0
++-------------------------------+
+| logical_start_block | 4       | // 1 (*512 bytes aligned*)
++-------------------------------+
+| ddr_load_address    | 4       | // 0x01100000 (may be different?)
++-------------------------------+
+| entry_point         | 4       | // 0x01101000 (may be different?)
++-------------------------------+
+| size_of_os_image    | 4       | // *512 bytes aligned*
++-------------------------------+
+| attribute           | 1       | // image type: 0x0 signed boot, 0x1 unsigned boot, 0xc signed recovery, 0xd unsigned recovery
++-------------------------------+
+| reserved[3]         | 3 (3*1) | // 0
++-------------------------------+
+
+
+References
+----------
+
+http://opensource.dell.com/releases/Venue_7_3740_Merrifield/developer-edition/A195/dell_venue_kernel.tgz
+(see:
+linux/kernel_build.sh
+linux/stitch.py
+linux/MOS_OTA.XML
+linux/modules/drivers/platform/x86/intel_mid_osip.c)
+
+https://github.com/quanganh2627/android_hardware_intel/blob/master/libintelprov/update_osip.c
+(see read_osimage_data)
+
+@social-design-concepts on xda
+@vampirefo on xda
