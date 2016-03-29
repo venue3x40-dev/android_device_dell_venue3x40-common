@@ -26,12 +26,31 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
+# RIL
+PRODUCT_PACKAGES += \
+    libshim_tcs \
+    ril-wrapper
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/repository7160.txt:system/etc/rril/repository7160.txt \
+    $(LOCAL_PATH)/configs/mmgr_7160_conf_2.xml:system/etc/telephony/mmgr_7160_conf_2.xml \
+    $(LOCAL_PATH)/configs/telephony_scalability.xml:system/etc/telephony/telephony_scalability.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/ril-wrapper.so \
+    ro.telephony.default_network=9 \
+    telephony.lteOnGsmDevice=1 \
+    \
+    audiocomms.modemLib=libmamgr-xmm.so \
+    audiocomms.XMM.primaryChannel=/dev/gsmtty13
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.lte.rc:root/init.lte.rc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 $(call inherit-product, vendor/dell/venue3x40-common/device-common-vendor-blobs-lte.mk)

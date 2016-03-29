@@ -6,3 +6,14 @@ lib/hw/gps.saltbay.so:vendor/lib/hw/gps.saltbay.so
 lib/libmmgrcli.so:vendor/lib/libmmgrcli.so
 lib/libmmgr_cnx.so:vendor/lib/libmmgr_cnx.so
 lib/libmmgr_utils.so:vendor/lib/libmmgr_utils.so
+
+# RIL
+bin/mmgr:vendor/bin/mmgr
+lib/libdx_cc7.so:vendor/lib/libdx_cc7.so
+lib/libinterface-provider.so:vendor/lib/libinterface-provider.so
+lib/libmamgr-xmm.so:vendor/lib/libmamgr-xmm.so
+lib/libmcdr.so:vendor/lib/libmcdr.so
+lib/libmodemupdate.so:vendor/lib/libmodemupdate.so
+lib/librapid-ril-core.so:vendor/lib/librapid-ril-core.so
+lib/librapid-ril-util.so:vendor/lib/librapid-ril-util.so
+lib/libtcs.so:vendor/lib/libtcs.so

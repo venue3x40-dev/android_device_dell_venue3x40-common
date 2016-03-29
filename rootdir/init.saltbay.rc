@@ -34,7 +34,7 @@ on early-init
 
 on init
     # Shims
-    export LD_SHIM_LIBS /system/vendor/lib/libparameter.so|libshim_audio.so:/system/vendor/lib/libdsp.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so|libshim_audio.so:/system/vendor/lib/hw/camera.saltbay.so|libshim_camera.so:/system/vendor/bin/gpsd|libshim_gps.so:/system/vendor/lib/hw/gps.saltbay.so|libshim_gps.so
+    export LD_SHIM_LIBS /system/vendor/lib/libparameter.so|libshim_audio.so:/system/vendor/lib/libdsp.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so|libshim_audio.so:/system/lib/parameter-framework-plugins/Audio/libtinyalsactl-subsystem.so|libshim_audio.so:/system/vendor/lib/hw/camera.saltbay.so|libshim_camera.so:/system/vendor/bin/gpsd|libshim_gps.so:/system/vendor/lib/hw/gps.saltbay.so|libshim_gps.so:/system/vendor/lib/libtcs.so|libshim_tcs.so
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard

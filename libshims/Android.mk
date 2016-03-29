@@ -56,3 +56,14 @@ LOCAL_MODULE := libshim_gps
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
+
+# RIL
+
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := icu51.c
+LOCAL_SHARED_LIBRARIES := libicuuc libicui18n libstlport
+LOCAL_MODULE := libshim_tcs
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)

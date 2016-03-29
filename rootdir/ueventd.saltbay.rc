@@ -11,3 +11,12 @@
 /dev/video*                             0660   root       camera
 /dev/v4l-subdev*                        0660   root       camera
 /dev/media*                             0660   root       camera
+
+# RIL
+/dev/mdm_ctrl                           0660   root       radio
+/dev/gsmtty*                            0660   system     radio
+/dev/gsmtty13                           0660   media      radio
+/dev/ttyMFD2                            0660   system     radio
+/dev/ttyACM0                            0660   root       radio
+/sys/devices/pci* hsic_enable           0664   root       system
+/sys/devices/pci* L2_autosuspend_enable 0664   root       system

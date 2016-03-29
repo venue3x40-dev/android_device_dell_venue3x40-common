@@ -13,5 +13,12 @@ on post-fs-data
 service gpsd /system/vendor/bin/gpsd -c /system/etc/gps.xml
     class main
     user gps
-    group system inet net_raw
+    group system inet net_raw radio
     ioprio be 0
+
+# RIL
+service mmgr /system/vendor/bin/mmgr
+    class core
+    socket mmgr stream 660 media radio
+    user system
+    group radio cache inet misc system usb
