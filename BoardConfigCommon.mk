@@ -111,6 +111,7 @@ TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # Charger mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/dell/venue3x40-common/charger/images
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/dell/venue3x40-common/rootdir/fstab.saltbay
