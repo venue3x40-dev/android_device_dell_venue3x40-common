@@ -74,6 +74,7 @@ endif
 # Video
 ENABLE_IMG_GRAPHICS := true
 INTEL_HWC_MERRIFIELD := true
+TARGET_DISABLE_CURSOR_LAYER := true
 
 # Multimedia
 BUILD_WITH_FULL_STAGEFRIGHT := true
