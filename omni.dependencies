@@ -4,11 +4,5 @@
     "repository": "venue3x40-dev/android_kernel_dell_venue3x40",
     "target_path": "kernel/dell/venue3x40",
     "revision": "twrp"
-  },
-  {
-    "remote": "github",
-    "repository": "Dees-Troy/android_external_libenc",
-    "target_path": "external/libenc",
-    "revision": "android-5.1"
   }
 ]
