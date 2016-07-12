@@ -1,10 +1,10 @@
 /system      ext4        /dev/block/mmcblk0p8
-/cache       ext4        /dev/block/mmcblk0p6
+/cache       ext4        /dev/block/mmcblk0p6                            flags=canencryptbackup=1
 /data        ext4        /dev/block/mmcblk0p9                            flags=encryptable=/factory/userdata_footer
 
-/factory     ext4        /dev/block/mmcblk0p3                            flags=display="Factory";backup=1;mounttodecrypt
-/config      ext4        /dev/block/mmcblk0p5                            flags=display="Config";backup=1
-/logs        ext4        /dev/block/mmcblk0p7                            flags=display="Logs";backup=1
+/factory     ext4        /dev/block/mmcblk0p3                            flags=display="Factory";backup=1;canencryptbackup=1;mounttodecrypt
+/config      ext4        /dev/block/mmcblk0p5                            flags=display="Config";backup=1;canencryptbackup=1
+/logs        ext4        /dev/block/mmcblk0p7                            flags=display="Logs";backup=1;canencryptbackup=1
 
 /external_sd auto        /dev/block/mmcblk1p1  /dev/block/mmcblk1        flags=display="Micro SDCard";storage;removable;wipeingui
 /usb-otg     auto        /dev/block/sda1       /dev/block/sda            flags=display="USB OTG";storage;removable;wipeingui
