@@ -73,6 +73,13 @@ on post-fs
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0
 
+    # Thermal management
+    chown system system /sys/module/intel_mid_osip/parameters/force_shutdown_occured
+    chown system system /sys/class/thermal/cooling_device0/cur_state
+    chown system system /sys/class/thermal/cooling_device1/cur_state
+    chown system system /sys/devices/platform/coretemp.0/temp2_threshold1
+    chown system system /sys/devices/platform/coretemp.0/temp2_threshold2
+
 on post-fs-data
     # Insert V4L drivers
     insmod /system/lib/modules/videobuf-core.ko

@@ -117,5 +117,8 @@ BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/dell/venue3x40-common/charger/images
 # Healthd
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.saltbay
 
+# Thermal management
+ENABLE_ITUXD := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/dell/venue3x40-common/rootdir/fstab.saltbay

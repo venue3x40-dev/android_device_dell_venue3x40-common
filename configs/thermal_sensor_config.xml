@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Thermal Management Configuration File -->
+<!--  Intel Corporation 2011-2012  -->
+<thermalconfig>
+  <!-- Config xml file version should be in sync with iTUX version number-->
+  <ConfigFileVersion>3.0</ConfigFileVersion>
+  <!--Platform Parameters-->
+  <PlatformInfo>
+      <PlatformName>saltbay</PlatformName>
+      <!--namely NORMAL, WARNING, ALERT, and CRITICAL.-->
+      <!--in the increasing order of thermal severity-->
+      <!--standard sensor devices register as /sys/class/thermal/thermal_zoneX. Herein
+      referred as 'Path Enumerated at Runtime by Framework in Kernel Thermal' or PERFKT-->
+  </PlatformInfo>
+
+  <Sensor>
+      <SensorName>skin1</SensorName>
+      <SensorPath>auto</SensorPath>
+      <InputTemp>temp</InputTemp>
+      <HighTemp>auto</HighTemp>
+      <LowTemp>auto</LowTemp>
+  </Sensor>
+
+  <Sensor>
+      <SensorName>skin0</SensorName>
+      <SensorPath>auto</SensorPath>
+      <InputTemp>temp</InputTemp>
+      <HighTemp>auto</HighTemp>
+      <LowTemp>auto</LowTemp>
+  </Sensor>
+
+  <Sensor>
+      <SensorName>SoC_DTS0</SensorName>
+      <SensorPath>auto</SensorPath>
+      <InputTemp>temp</InputTemp>
+      <HighTemp>auto</HighTemp>
+      <LowTemp>auto</LowTemp>
+  </Sensor>
+
+  <Sensor>
+      <SensorName>Core 0</SensorName>
+      <SensorPath>/sys/devices/platform/coretemp.0/</SensorPath>
+      <InputTemp>temp2_input</InputTemp>
+      <HighTemp>temp2_threshold2</HighTemp>
+      <LowTemp>temp2_threshold1</LowTemp>
+      <UEventDevPath>DEVPATH=/devices/platform/coretemp.0</UEventDevPath>
+  </Sensor>
+
+  <Sensor>
+      <SensorName>bq27441_battery</SensorName>
+      <SensorPath>auto</SensorPath>
+      <InputTemp>temp</InputTemp>
+      <HighTemp>auto</HighTemp>
+      <LowTemp>auto</LowTemp>
+  </Sensor>
+
+  <Zone>
+        <ZoneID>1</ZoneID>
+        <ZoneName>BackSkin</ZoneName>
+        <ZoneLogic>Raw</ZoneLogic>
+        <SupportsUEvent>0</SupportsUEvent>
+        <DebounceInterval>1000</DebounceInterval>
+        <PollDelay>
+               <DelayNormal>30000</DelayNormal>
+               <DelayWarning>10000</DelayWarning>
+               <DelayAlert>5000</DelayAlert>
+        </PollDelay>
+        <ZoneThreshold>
+               <ZoneThresholdNormal>48000</ZoneThresholdNormal>
+               <ZoneThresholdWarning>50000</ZoneThresholdWarning>
+               <ZoneThresholdAlert>70000</ZoneThresholdAlert>
+        </ZoneThreshold>
+       <SensorAttrib>
+           <SensorName>skin1</SensorName>
+       </SensorAttrib>
+  </Zone>
+
+  <Zone>
+       <ZoneID>2</ZoneID>
+       <ZoneName>FrontSkin</ZoneName>
+       <ZoneLogic>Raw</ZoneLogic>
+       <SupportsUEvent>0</SupportsUEvent>
+       <DebounceInterval>1000</DebounceInterval>
+       <PollDelay>
+              <DelayNormal>30000</DelayNormal>
+              <DelayWarning>10000</DelayWarning>
+              <DelayAlert>5000</DelayAlert>
+       </PollDelay>
+       <ZoneThreshold>
+              <ZoneThresholdNormal>48000</ZoneThresholdNormal>
+              <ZoneThresholdWarning>50000</ZoneThresholdWarning>
+              <ZoneThresholdAlert>70000</ZoneThresholdAlert>
+       </ZoneThreshold>
+       <SensorAttrib>
+           <SensorName>skin0</SensorName>
+       </SensorAttrib>
+  </Zone>
+
+  <Zone>
+       <ZoneID>3</ZoneID>
+       <ZoneName>SoC</ZoneName>
+       <ZoneLogic>Raw</ZoneLogic>
+       <SupportsUEvent>0</SupportsUEvent>
+       <DebounceInterval>1000</DebounceInterval>
+       <PollDelay>
+              <DelayNormal>30000</DelayNormal>
+              <DelayWarning>10000</DelayWarning>
+              <DelayAlert>5000</DelayAlert>
+       </PollDelay>
+       <ZoneThreshold>
+              <ZoneThresholdNormal>85000</ZoneThresholdNormal>
+              <ZoneThresholdWarning>87000</ZoneThresholdWarning>
+              <ZoneThresholdAlert>89000</ZoneThresholdAlert>
+       </ZoneThreshold>
+       <SensorAttrib>
+           <SensorName>SoC_DTS0</SensorName>
+       </SensorAttrib>
+  </Zone>
+
+  <Zone>
+       <ZoneID>4</ZoneID>
+       <ZoneName>CPU</ZoneName>
+       <ZoneLogic>Raw</ZoneLogic>
+       <SupportsUEvent>1</SupportsUEvent>
+       <DebounceInterval>1000</DebounceInterval>
+       <PollDelay>
+              <DelayNormal>30000</DelayNormal>
+              <DelayWarning>10000</DelayWarning>
+              <DelayAlert>5000</DelayAlert>
+       </PollDelay>
+       <ZoneThreshold>
+              <ZoneThresholdNormal>85000</ZoneThresholdNormal>
+              <ZoneThresholdWarning>87000</ZoneThresholdWarning>
+              <ZoneThresholdAlert>89000</ZoneThresholdAlert>
+       </ZoneThreshold>
+       <SensorAttrib>
+           <SensorName>Core 0</SensorName>
+       </SensorAttrib>
+  </Zone>
+
+  <Zone>
+       <ZoneID>5</ZoneID>
+       <ZoneName>Battery</ZoneName>
+       <ZoneLogic>Raw</ZoneLogic>
+       <SupportsUEvent>0</SupportsUEvent>
+       <DebounceInterval>1000</DebounceInterval>
+       <PollDelay>
+              <DelayTOff>30000</DelayTOff>
+              <DelayNormal>30000</DelayNormal>
+              <DelayWarning>10000</DelayWarning>
+              <DelayAlert>5000</DelayAlert>
+              <DelayCritical>5000</DelayCritical>
+       </PollDelay>
+       <ZoneThreshold>
+              <ZoneThresholdTOff>0</ZoneThresholdTOff>
+              <ZoneThresholdNormal>0</ZoneThresholdNormal>
+              <ZoneThresholdWarning>0</ZoneThresholdWarning>
+              <ZoneThresholdAlert>60000</ZoneThresholdAlert>
+              <ZoneThresholdCritical>68000</ZoneThresholdCritical>
+       </ZoneThreshold>
+       <SensorAttrib>
+           <SensorName>bq27441_battery</SensorName>
+       </SensorAttrib>
+  </Zone>
+</thermalconfig>

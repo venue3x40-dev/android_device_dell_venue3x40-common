@@ -126,6 +126,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.saltbay
 
+# Thermal management
+PRODUCT_PACKAGES += \
+    ituxd
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.service.thermal=1 \
+    persist.thermal.turbo.dynamic=0 \
+    ro.thermal.ituxversion=3.0
+
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.saltbay.rc:root/init.saltbay.rc \
