@@ -27,24 +27,37 @@ Value *FlashOSImage(const char *name, State *state, int argc, Expr *argv[]) {
     char *filename, *image_name;
     void *data;
     int ret;
+    int length;
+
+    Value *contents;
+    Value *image_name_value;
 
     if (argc != 2) {
         ErrorAbort(state, "%s: Invalid parameters.", name);
         goto exit;
     }
 
-    if (ReadArgs(state, argv, 2, &filename, &image_name) < 0) {
-        ErrorAbort(state, "%s: ReadArgs failed.", name);
+    if (ReadValueArgs(state, argv, 2, &contents, &image_name_value) < 0) {
+        ErrorAbort(state, "%s: ReadValueArgs failed.", name);
         goto exit;
     }
 
-    int length = file_size(filename);
-    if (length == -1)
-        goto free;
+    image_name = image_name_value->data;
 
-    data = file_mmap(filename, length, true);
-    if (data == MAP_FAILED)
-        goto free;
+    if (contents->type == VAL_STRING) {
+        filename = contents->data;
+
+        length = file_size(filename);
+        if (length == -1)
+            goto free;
+
+        data = file_mmap(filename, length, true);
+        if (data == MAP_FAILED)
+            goto free;
+    } else {
+        data = contents->data;
+        length = contents->size;
+    }
 
     int index = get_named_osii_index(image_name);
 
@@ -56,23 +69,24 @@ Value *FlashOSImage(const char *name, State *state, int argc, Expr *argv[]) {
     ret = write_stitch_image(data, length, index);
 
     if (ret != 0) {
-        ErrorAbort(state, "%s: Failed to flash %s image %s, %s.",
-                   name, filename, image_name, strerror(errno));
+        ErrorAbort(state, "%s: Failed to flash %s image, %s.",
+                   name, image_name, strerror(errno));
         goto unmap;
     }
 
     funret = StringValue(strdup(""));
 
 unmap:
-    munmap(data, length);
+    if (contents->type == VAL_STRING)
+        munmap(data, length);
 free:
-    free(filename);
-    free(image_name);
+    FreeValue(contents);
+    FreeValue(image_name_value);
 exit:
     return funret;
 }
 
 void Register_libintel_updater(void)
 {
-    RegisterFunction("flash_os_image", FlashOSImage);
+    RegisterFunction("write_osip_image", FlashOSImage);
 }
