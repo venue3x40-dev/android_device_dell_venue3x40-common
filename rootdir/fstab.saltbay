@@ -12,3 +12,7 @@
 # vold
 /devices/pci0000:00/0000:00:01.2/mmc_host/mmc1*            auto         auto    defaults                                                               voldmanaged=sdcard1:auto,encryptable=userdata
 /devices/pci0000:00/0000:00:11.0/dwc3-host.2/usb*          auto         auto    defaults                                                               voldmanaged=usb:auto,encryptable=userdata
+
+# recovery
+boot                                                       /boot        osip    defaults                                                               recoveryonly
+recovery                                                   /recovery    osip    defaults                                                               recoveryonly

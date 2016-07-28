@@ -122,3 +122,4 @@ ENABLE_ITUXD := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/dell/venue3x40-common/rootdir/fstab.saltbay
+TARGET_RECOVERY_UPDATER_LIBS := libintel_updater
