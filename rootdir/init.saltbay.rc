@@ -81,13 +81,6 @@ on post-fs
     chown system system /sys/devices/platform/coretemp.0/temp2_threshold2
 
 on post-fs-data
-    # Insert V4L drivers
-    insmod /system/lib/modules/videobuf-core.ko
-    insmod /system/lib/modules/videobuf-vmalloc.ko
-
-    # Insert Camera driver
-    insmod /system/lib/modules/atomisp-css2400b0_v21.ko dypool_enable=y repool_pgnr=12288 dypool_pgnr=12288
-
     # Bluetooth
     setprop ro.bt.bdaddr_path "/config/bt/bd_addr.conf"
     chmod 0660 /sys/class/rfkill/rfkill2/state
