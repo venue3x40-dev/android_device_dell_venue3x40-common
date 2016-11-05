@@ -112,6 +112,9 @@ BOARD_BLUEDROID_VENDOR_CONF := device/dell/venue3x40-common/bluetooth/vnd_venue3
 USE_OPENGL_RENDERER := true
 TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
+# RIL
+BOARD_RIL_CLASS := ../../../device/dell/venue3x40-common/ril
+
 # Charger mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/dell/venue3x40-common/charger/images

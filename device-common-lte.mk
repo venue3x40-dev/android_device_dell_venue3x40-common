@@ -37,6 +37,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/telephony_scalability.xml:system/etc/telephony/telephony_scalability.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.ril_class=Venue3x40RIL \
     rild.libpath=/system/lib/ril-wrapper.so \
     ro.telephony.default_network=9 \
     telephony.lteOnGsmDevice=1 \
