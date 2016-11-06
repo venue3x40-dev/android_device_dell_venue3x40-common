@@ -66,7 +66,6 @@ lib/libgtisrv.so:vendor/lib/libgtisrv.so
 lib/libinterface-provider-lib.so:vendor/lib/libinterface-provider-lib.so
 lib/libparameter.so:vendor/lib/libparameter.so
 lib/libproperty.so:vendor/lib/libproperty.so
-lib/libtinyalsa.so:vendor/lib/libtinyalsa.so
 lib/libutaos.so:vendor/lib/libutaos.so
 lib/parameter-framework-plugins/Audio/libdsp-subsystem.so
 lib/parameter-framework-plugins/Audio/libimc-subsystem.so
