@@ -75,6 +75,9 @@ lib/parameter-framework-plugins/Audio/libtinyamixer-subsystem.so
 lib/parameter-framework-plugins/Audio/libuta-subsystem.so
 lib/parameter-framework-plugins/Fs/libfs-subsystem.so
 
+# DRM (Widevine L3 from fugu device)
+vendor/lib/mediadrm/libwvdrmengine.so:vendor/lib/mediadrm/libwvdrmengine.so
+
 ###### FIRMWARES ######
 
 # Audio
